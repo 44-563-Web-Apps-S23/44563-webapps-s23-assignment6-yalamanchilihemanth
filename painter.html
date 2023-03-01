@@ -40,6 +40,35 @@ function checkPainter(){
 }
 </script>
 
+<div class="container">
+    <img id="pic" src="NorfolkIslandPine.jpg" height="100" weight="100" onclick="selectImage()">
+</div>
+
+<script>
+    var useI=1
+    var img=document.getElementById("pic")
+    function selectImage(){
+        switch(useI){
+            case 1:
+                img.src="maackia.jpg"
+                useI++
+                break
+            case 2:
+                img.src="Laburnum-Vossii-Flowers.jpg"
+                useI++
+                break
+            case 3:
+                img.src="achillea-growing-yarrow-in-the-perennial-garden-1402830-08-4e5d19b06620411ebcdf70ae3917067a.jpg"
+                useI=1
+                break
+            default:
+        }
+    }
+</script>
+</body>
+</html> 
+Footer
+
 
 </body>
 </html>s
