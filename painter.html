@@ -2,55 +2,64 @@
 <html>
     <head>
         <title>My painting</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" 
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" 
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     </head>
- 
+
 <body>
 <h1>Painter entry Hemanth Yalamanchili</h1>
 <h2>Getting input</h2>
-
 <form>
     <label for="form1_age">The hidden painter name</label>
     <input type ="password" id="form1_age" name="form1_age" min=10 max=50 step=2 value=Monet> <br>
-
     <label for="form1_nick">Guess the painter </label>
     <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
-
-    <input type="button" onclick="checkPainter()" value="Check the guess">
-
+    <input type="button" class="btn btn-warning" onclick="checkPainter()" value="Check the guess">
 </form>
 <p id="result">This text will be replaced </p>
-
 <script> 
 var good=0;
 var oops=0;
 function checkPainter(){
+    if(oops >= 10){
+        giveAlert()
+    }
+    else{
     console.log("The hidden painter values")
     b1 = document.getElementById("form1_age").value
     b2 = document.getElementById("form1_nick").value
-   
+    confirmed = confirm("Are these the values? "+b1+"and"+b2)
+    out = document.getElementById("result");
     if(b1==b2){
         good = good+1
         alert("You got it right")
-        result.innerHTML = "Good count value is :"+good
+        good = good+1
     } else {
         oops = oops+1
         alert("Sorry")
-        result.innerHTML = "Oops count value is :"+oops
+        
     }
+    out.innerHTML = "right count:  " +good +  " wrong count:  "+oops
+}
 }
 </script>
-
 <div class="container">
-    <img id="pic" src="NorfolkIslandPine.jpg" height="100" weight="100" onclick="selectImage()">
+    <img id="pic" src="Maackia.jpg" height="100" weight="100" onclick="selectImage()">
 </div>
 
 <script>
     var useI=1
     var img=document.getElementById("pic")
-    function selectImage(){
-        switch(useI){
+    function selectImage()
+    {
+        switch(useI)
+        {
             case 1:
-                img.src="maackia.jpg"
+                img.src="Maackia.jpg"
                 useI++
                 break
             case 2:
@@ -64,11 +73,14 @@ function checkPainter(){
             default:
         }
     }
+    function giveAlert(){
+        alert("sorry ,ran out of guesses");
+    }
 </script>
-</body>
-</html> 
-Footer
 
 
+
+
+
 </body>
-</html>s
+</html>
